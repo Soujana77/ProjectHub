@@ -1,0 +1,58 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Build folders
+dist/
+build/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Runtime files
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+
+# Cache
+.cache/
+
+# Temporary files
+tmp/
+temp/
+
+# Vite
+vite.svg
+
+# Mongo
+mongodb-data/
+
+# Uploads
+uploads/
+
+# Cloudinary generated files (if stored locally)
+public/uploads/
+
+# Misc
+*.local
