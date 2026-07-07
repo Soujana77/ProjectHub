@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import LandingPage from "../pages/landing/LandingPage";
 import MainLayout from "../layouts/MainLayout";
 
 function AppRoutes() {
@@ -8,12 +8,10 @@ function AppRoutes() {
         path="/"
         element={
           <MainLayout>
-            <h1>ProjectHub</h1>
+            <LandingPage />
           </MainLayout>
         }
       />
     </Routes>
   );
 }
-
-export default AppRoutes;

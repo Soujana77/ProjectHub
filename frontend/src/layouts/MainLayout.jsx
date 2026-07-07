@@ -1,10 +1,11 @@
-import Navbar from "../components/layout/Navbar";
+import Navbar from "../components/layout/Navbar/Navbar";
 
 function MainLayout({ children }) {
   return (
     <>
       <Navbar />
       <main>{children}</main>
+      <Footer/>
     </>
   );
 }
