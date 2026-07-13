@@ -49,6 +49,24 @@ const createProject = async (data) => {
   return project;
 };
 
+const getAllProjects = async () => {
+  return await prisma.project.findMany({
+    include: {
+      owner: {
+        select: {
+          id: true,
+          fullName: true,
+          email: true,
+        },
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+};
+
 module.exports = {
   createProject,
+  getAllProjects,
 };

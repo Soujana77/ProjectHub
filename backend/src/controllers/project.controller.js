@@ -14,11 +14,31 @@ const createProject = async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: error.message || "Internal Server Error",
+      message: error.message,
+    });
+  }
+};
+
+const getAllProjects = async (req, res) => {
+  try {
+    const projects = await projectService.getAllProjects();
+
+    return res.status(200).json({
+      success: true,
+      count: projects.length,
+      projects,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
     });
   }
 };
 
 module.exports = {
   createProject,
+  getAllProjects,
 };
