@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { loginUser } from "@/services/auth.service";
+import { AuthService } from "@/services/auth.service";
 
 export const Route = createFileRoute("/auth/login")({
   component: Login,
@@ -20,7 +20,7 @@ function Login() {
     const formData = new FormData(e.currentTarget);
 
     try {
-      const response = await loginUser({
+      const response = await AuthService.login({
         email: formData.get("email") as string,
         password: formData.get("password") as string,
       });

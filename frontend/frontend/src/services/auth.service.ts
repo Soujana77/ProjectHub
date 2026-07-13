@@ -1,23 +1,25 @@
 import { api } from "@/lib/api";
 
-export interface RegisterData {
+export interface RegisterRequest {
   firstName: string;
   lastName: string;
   email: string;
   password: string;
 }
 
-export interface LoginData {
+export interface LoginRequest {
   email: string;
   password: string;
 }
 
-export const registerUser = async (data: RegisterData) => {
-  const response = await api.post("/auth/register", data);
-  return response.data;
-};
+export const AuthService = {
+  register: async (data: RegisterRequest) => {
+    const response = await api.post("/auth/register", data);
+    return response.data;
+  },
 
-export const loginUser = async (data: LoginData) => {
-  const response = await api.post("/auth/login", data);
-  return response.data;
+  login: async (data: LoginRequest) => {
+    const response = await api.post("/auth/login", data);
+    return response.data;
+  },
 };
