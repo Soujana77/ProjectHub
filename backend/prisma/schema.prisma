@@ -13,6 +13,18 @@ enum UserRole {
   ADMIN
 }
 
+enum ProjectStatus {
+  OPEN
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum Difficulty {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
 model User {
   id           String    @id @default(cuid())
   fullName     String
@@ -21,6 +33,32 @@ model User {
   role         UserRole  @default(STUDENT)
   profileImage String?
   bio          String?
+
+  // Relations
+  projects      Project[]
+
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
+}
+
+model Project {
+  id            String           @id @default(cuid())
+
+  title         String
+  description   String
+
+  category      String
+  techStack     String
+
+  difficulty    Difficulty
+  status        ProjectStatus    @default(OPEN)
+
+  teamSize      Int
+  currentMembers Int             @default(1)
+
+  ownerId       String
+  owner         User             @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
 }
